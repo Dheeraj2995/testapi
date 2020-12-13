@@ -1,0 +1,588 @@
+{
+	"info": {
+		"_postman_id": "836e1c40-ebe6-45d2-8cf6-d116e8f537ac",
+		"name": "Error Codes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1000",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6e5ea30d-1ed1-4ace-9ffe-9ab08ef0655b",
+						"exec": [
+							"ResponseData = JSON.parse(responseBody);\r",
+							"var Status = JSON.parse(ResponseData.StatusCode)\r",
+							"pm.test(\"Error code is 1000\", function() \r",
+							"{\r",
+							"    pm.expect(ResponseData.ErrorCode).is.equal(1000);\r",
+							"});\r",
+							"pm.test(\"No Retry\", function() \r",
+							"{\r",
+							"    pm.expect(ResponseData.Retry).is.equal(false);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "10002",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/UsersService/api/v1/User/84C61C63-1C55-4188-BA11-0BD9D4D33AF9/token?type=uploadd",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"UsersService",
+						"api",
+						"v1",
+						"User",
+						"84C61C63-1C55-4188-BA11-0BD9D4D33AF9",
+						"token"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "uploadd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1001",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a6aa2b17-8985-4a15-9e02-d87e1880be80",
+						"exec": [
+							"ResponseData = JSON.parse(responseBody);\r",
+							"var Status = JSON.parse(ResponseData.StatusCode)\r",
+							"pm.test(\"Error code is 1000\", function() \r",
+							"{\r",
+							"    pm.expect(ResponseData.ErrorCode).is.equal(1000);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ShardKey",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"url": {
+					"raw": "https://dellbackup-qa.betsol.com/UsersService/api/v1/User/84c61c63-1c55-4188-ba11-0bd9d4d33af9/token?type=upload",
+					"protocol": "https",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"UsersService",
+						"api",
+						"v1",
+						"User",
+						"84c61c63-1c55-4188-ba11-0bd9d4d33af9",
+						"token"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "upload"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1002",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "10ce0752-c861-4084-8b0f-e726c6bfee63",
+						"exec": [
+							"ResponseData = JSON.parse(responseBody);\r",
+							"var Status = JSON.parse(ResponseData.StatusCode)\r",
+							"pm.test(\"Error code is 1002\", function() \r",
+							"{\r",
+							"    pm.expect(ResponseData.ErrorCode).is.equal(1002);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ShardKey",
+						"type": "text",
+						"value": "3"
+					},
+					{
+						"key": "Token",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/UsersService/api/v1/User/B72244B9-C4F9-4023-AC98-0D3CBB17C45D/token?type=upload",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"UsersService",
+						"api",
+						"v1",
+						"User",
+						"B72244B9-C4F9-4023-AC98-0D3CBB17C45D",
+						"token"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "upload"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1003",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "14a37ba6-5ea3-432e-9e73-1dfb561cda4b",
+						"exec": [
+							"function create_UUID(){\r",
+							"    var dt = new Date().getTime();\r",
+							"    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {\r",
+							"        var r = (dt + Math.random()*16)%16 | 0;\r",
+							"        dt = Math.floor(dt/16);\r",
+							"        return (c=='x' ? r :(r&0x3|0x8)).toString(16);\r",
+							"    });\r",
+							"    return uuid;\r",
+							"}\r",
+							"var uuid1 = create_UUID();\r",
+							"var uuid2 = create_UUID();\r",
+							"var userId = \"84c61c63-1c55-4188-ba11-0bd9d4d33af9\";\r",
+							"var deviceId = \" 254bc53c-cd13-422d-82a3-4dccd7251fc8\";\r",
+							"var folderName = \"tryit\";\r",
+							"var localhostUrl = \"http://localhost:5000\";\r",
+							"var devUrl = \"http://dellbackup-qa.betsol.com\";\r",
+							"let timestamp = new Date().toJSON();\r",
+							"var hash1 = create_UUID();\r",
+							"var hash2 = create_UUID();\r",
+							"pm.environment.set('uuid1', uuid1);\r",
+							"pm.environment.set('uuid2', uuid2);\r",
+							"pm.environment.set('userId', userId);\r",
+							"pm.environment.set('deviceId', deviceId);\r",
+							"pm.environment.set('folderName', folderName);\r",
+							"pm.environment.set('localhostUrl', localhostUrl);\r",
+							"pm.environment.set('devUrl', devUrl);\r",
+							"pm.environment.set('timestamp', timestamp);\r",
+							"pm.environment.set('hash1', hash1);\r",
+							"pm.environment.set('hash2', hash2);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "034565a3-5763-4859-807f-cbcb5cac9cb0",
+						"exec": [
+							"ResponseData = JSON.parse(responseBody);\r",
+							"var Status = JSON.parse(ResponseData.StatusCode)\r",
+							"\r",
+							"pm.test(\"Status code is correct\", function()\r",
+							"{\r",
+							"     pm.expect(Status).is.equal(0);\r",
+							"} );\r",
+							"\r",
+							"   \r",
+							"pm.test(\"Error Message found\", function()\r",
+							"{\r",
+							"   pm.expect(ResponseData.Data.FailedFiles[0].ErrorMessage).is.equal(\"Parent file not found\");\r",
+							"}\r",
+							");\r",
+							"\r",
+							"pm.test(\"Error Code found\", function()\r",
+							"{\r",
+							"   pm.expect(ResponseData.Data.FailedFiles[0].ErrorCode).is.equal(1003);\r",
+							"}\r",
+							");\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ShardKey",
+						"type": "text",
+						"value": "10002"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {  \r\n    \"FileId\": \"{{uuid1}}\",\r\n    \"Path\": \"E:\\\\\",\r\n    \"FileType\": 1,\r\n    \"IsDeleted\": \"true\",\r\n    \"IsExcluded\": \"false\",\r\n    \"IsBackupCandidate\": \"false\",\r\n    \"ParentId\": null\r\n  },\r\n  {\r\n    \"FileId\": \"{{uuid2}}\",\r\n    \"Path\": \"E:\\\\{{folderName}}\\\\\",\r\n    \"FileType\": 2,\r\n    \"IsDeleted\": \"true\",\r\n    \"IsExcluded\": \"false\",\r\n    \"IsBackupCandidate\": \"true\",\r\n    \"ParentId\": \"84c61c63-1c55-4188-ba11-0bd9d4d33bf8\",\r\n    \"VersionId\": \"{{$guid}}\",\r\n    \"FileSize\": null,\r\n    \"VersionHash\": null,\r\n    \"BackupVersion\": \"v1\",\r\n    \"IsHidden\": \"true\",\r\n    \"IsSystemFile\": \"false\",\r\n    \"IsReadOnly\": \"true\",\r\n    \"FileCreatedTime\": \"2020-08-12 12:50:59.962694\",\r\n    \"FileModifiedTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"FileAccessTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"VersionCreatedTime\": \"{{timestamp}}\"\r\n  },\r\n  {\r\n    \"FileId\": \"{{$guid}}\",\r\n    \"Path\": \"E:\\\\{{folderName}}\\\\normallyfile.txt\",\r\n    \"FileType\": 3,\r\n    \"IsDeleted\": \"true\",\r\n    \"IsExcluded\": \"false\",\r\n    \"IsBackupCandidate\": \"false\",\r\n    \"ParentId\": \"84c61c63-1c55-4188-ba11-9bd9d5d34af9\",\r\n    \"VersionId\": \"{{$guid}}\",\r\n    \"FileSize\": 4688,\r\n    \"VersionHash\": \"{{hash1}}\",\r\n    \"BackupVersion\": \"v1\",\r\n    \"IsHidden\": \"true\",\r\n    \"IsSystemFile\": \"false\",\r\n    \"IsReadOnly\": \"false\",\r\n    \"FileCreatedTime\": \"2020-08-12 12:50:59.962694\",\r\n    \"FileModifiedTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"FileAccessTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"VersionCreatedTime\": \"{{timestamp}}\",\r\n    \"Chunks\": [\r\n      {\r\n        \"Id\": \"84c61c63-1c55-4188-ba11-0bd9d4d33af9/{{hash1}}\",\r\n        \"ChunkMetaData\": \"{}\",\r\n        \"FilePipelineVersion\": \"v1\",\r\n        \"StartOffset\": 0,\r\n        \"EndOffset\": 300\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"FileId\": \"{{$guid}}\",\r\n    \"Path\": \"E:\\\\{{folderName}}\\\\T2.txt\",\r\n    \"FileType\": 3,\r\n    \"IsDeleted\": \"true\",\r\n    \"IsExcluded\": \"false\",\r\n    \"IsBackupCandidate\": \"false\",\r\n    \"ParentId\": \"{{uuid2}}\",\r\n    \"VersionId\": \"{{$guid}}\",\r\n    \"FileSize\": 468,\r\n    \"VersionHash\": \"{{hash2}}\",\r\n    \"BackupVersion\": \"v1\",\r\n    \"IsHidden\": \"true\",\r\n    \"IsSystemFile\": \"false\",\r\n    \"IsReadOnly\": \"false\",\r\n    \"FileCreatedTime\": \"2020-08-12 12:50:59.962694\",\r\n    \"FileModifiedTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"FileAccessTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"VersionCreatedTime\": \"{{timestamp}}\",\r\n    \"Chunks\": [\r\n      {\r\n        \"Id\": \"84c61c63-1c55-4188-ba11-0bd9d4d33af9/{{hash2}}\",\r\n        \"ChunkMetaData\": \"{}\",\r\n        \"FilePipelineVersion\": \"v1\",\r\n        \"StartOffset\": 0,\r\n        \"EndOffset\": 300\r\n      }\r\n    ]\r\n  }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/MetdataService/api/v1/user/{{userId}}/device/{{deviceId}}/file?checkforupdates=true",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"MetdataService",
+						"api",
+						"v1",
+						"user",
+						"{{userId}}",
+						"device",
+						"{{deviceId}}",
+						"file"
+					],
+					"query": [
+						{
+							"key": "checkforupdates",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1012",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e8b6d029-2c1d-4320-8d75-52fcc0205a00",
+						"exec": [
+							"function create_UUID(){\r",
+							"    var dt = new Date().getTime();\r",
+							"    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {\r",
+							"        var r = (dt + Math.random()*16)%16 | 0;\r",
+							"        dt = Math.floor(dt/16);\r",
+							"        return (c=='x' ? r :(r&0x3|0x8)).toString(16);\r",
+							"    });\r",
+							"    return uuid;\r",
+							"}\r",
+							"var uuid1 = create_UUID();\r",
+							"var uuid2 = create_UUID();\r",
+							"var userId = \"84c61c63-1c55-4188-ba11-0bd9d4d33af9\";\r",
+							"var deviceId = \" 254bc53c-cd13-422d-82a3-4dccd7251fc8\";\r",
+							"var folderName = \"tryit\";\r",
+							"var localhostUrl = \"http://localhost:5000\";\r",
+							"var devUrl = \"http://dellbackup-qa.betsol.com\";\r",
+							"let timestamp = new Date().toJSON();\r",
+							"var hash1 = create_UUID();\r",
+							"var hash2 = create_UUID();\r",
+							"pm.environment.set('uuid1', uuid1);\r",
+							"pm.environment.set('uuid2', uuid2);\r",
+							"pm.environment.set('userId', userId);\r",
+							"pm.environment.set('deviceId', deviceId);\r",
+							"pm.environment.set('folderName', folderName);\r",
+							"pm.environment.set('localhostUrl', localhostUrl);\r",
+							"pm.environment.set('devUrl', devUrl);\r",
+							"pm.environment.set('timestamp', timestamp);\r",
+							"pm.environment.set('hash1', hash1);\r",
+							"pm.environment.set('hash2', hash2);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "bab8aad5-4ffc-4e1c-a5b4-f1b363468f8c",
+						"exec": [
+							"ResponseData = JSON.parse(responseBody);\r",
+							"var Status = JSON.parse(ResponseData.StatusCode)\r",
+							"\r",
+							"pm.test(\"Status code is correct\", function()\r",
+							"{\r",
+							"     pm.expect(Status).is.equal(0);\r",
+							"} );\r",
+							"\r",
+							"   \r",
+							"pm.test(\"Error Message found\", function()\r",
+							"{\r",
+							"   pm.expect(ResponseData.ErrorMessage).is.equal(\"Out of space\");\r",
+							"}\r",
+							");\r",
+							"\r",
+							"pm.test(\"Error Code found\", function()\r",
+							"{\r",
+							"   pm.expect(ResponseData.ErrorCode).is.equal(1012);\r",
+							"}\r",
+							");\r",
+							"pm.test(\"No Retry\", function() \r",
+							"{\r",
+							"    pm.expect(ResponseData.Retry).is.equal(false);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ShardKey",
+						"type": "text",
+						"value": "10002"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {  \r\n    \"FileId\": \"{{uuid1}}\",\r\n    \"Path\": \"E:\\\\\",\r\n    \"FileType\": 1,\r\n    \"IsDeleted\": \"true\",\r\n    \"IsExcluded\": \"false\",\r\n    \"IsBackupCandidate\": \"false\",\r\n    \"ParentId\": null\r\n  },\r\n  {\r\n    \"FileId\": \"{{uuid2}}\",\r\n    \"Path\": \"E:\\\\{{folderName}}\\\\\",\r\n    \"FileType\": 2,\r\n    \"IsDeleted\": \"true\",\r\n    \"IsExcluded\": \"false\",\r\n    \"IsBackupCandidate\": \"true\",\r\n    \"ParentId\": \"{{uuid1}}\",\r\n    \"VersionId\": \"{{$guid}}\",\r\n    \"FileSize\": null,\r\n    \"VersionHash\": null,\r\n    \"BackupVersion\": \"v1\",\r\n    \"IsHidden\": \"true\",\r\n    \"IsSystemFile\": \"false\",\r\n    \"IsReadOnly\": \"true\",\r\n    \"FileCreatedTime\": \"2020-08-12 12:50:59.962694\",\r\n    \"FileModifiedTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"FileAccessTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"VersionCreatedTime\": \"{{timestamp}}\"\r\n  },\r\n  {\r\n    \"FileId\": \"{{$guid}}\",\r\n    \"Path\": \"E:\\\\{{folderName}}\\\\normallyfile.txt\",\r\n    \"FileType\": 3,\r\n    \"IsDeleted\": \"true\",\r\n    \"IsExcluded\": \"false\",\r\n    \"IsBackupCandidate\": \"false\",\r\n    \"ParentId\": \"{{uuid2}}\",\r\n    \"VersionId\": \"{{$guid}}\",\r\n    \"FileSize\": 4681462888,\r\n    \"VersionHash\": \"{{hash1}}\",\r\n    \"BackupVersion\": \"v1\",\r\n    \"IsHidden\": \"true\",\r\n    \"IsSystemFile\": \"false\",\r\n    \"IsReadOnly\": \"false\",\r\n    \"FileCreatedTime\": \"2020-08-12 12:50:59.962694\",\r\n    \"FileModifiedTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"FileAccessTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"VersionCreatedTime\": \"{{timestamp}}\",\r\n    \"Chunks\": [\r\n      {\r\n        \"Id\": \"84c61c63-1c55-4188-ba11-0bd9d4d33af9/{{hash1}}\",\r\n        \"ChunkMetaData\": \"{}\",\r\n        \"FilePipelineVersion\": \"v1\",\r\n        \"StartOffset\": 0,\r\n        \"EndOffset\": 300\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"FileId\": \"{{$guid}}\",\r\n    \"Path\": \"E:\\\\{{folderName}}\\\\T2.txt\",\r\n    \"FileType\": 3,\r\n    \"IsDeleted\": \"true\",\r\n    \"IsExcluded\": \"false\",\r\n    \"IsBackupCandidate\": \"false\",\r\n    \"ParentId\": \"{{uuid2}}\",\r\n    \"VersionId\": \"{{$guid}}\",\r\n    \"FileSize\": 4681462889,\r\n    \"VersionHash\": \"{{hash2}}\",\r\n    \"BackupVersion\": \"v1\",\r\n    \"IsHidden\": \"true\",\r\n    \"IsSystemFile\": \"false\",\r\n    \"IsReadOnly\": \"false\",\r\n    \"FileCreatedTime\": \"2020-08-12 12:50:59.962694\",\r\n    \"FileModifiedTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"FileAccessTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"VersionCreatedTime\": \"{{timestamp}}\",\r\n    \"Chunks\": [\r\n      {\r\n        \"Id\": \"84c61c63-1c55-4188-ba11-0bd9d4d33af9/{{hash2}}\",\r\n        \"ChunkMetaData\": \"{}\",\r\n        \"FilePipelineVersion\": \"v1\",\r\n        \"StartOffset\": 0,\r\n        \"EndOffset\": 300\r\n      }\r\n    ]\r\n  }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/MetdataService/api/v1/user/{{userId}}/device/{{deviceId}}/file?checkforupdates=true",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"MetdataService",
+						"api",
+						"v1",
+						"user",
+						"{{userId}}",
+						"device",
+						"{{deviceId}}",
+						"file"
+					],
+					"query": [
+						{
+							"key": "checkforupdates",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1007",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "faab2ef8-322b-42a8-842c-0b3aa4c1f66c",
+						"exec": [
+							"function create_UUID(){\r",
+							"    var dt = new Date().getTime();\r",
+							"    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {\r",
+							"        var r = (dt + Math.random()*16)%16 | 0;\r",
+							"        dt = Math.floor(dt/16);\r",
+							"        return (c=='x' ? r :(r&0x3|0x8)).toString(16);\r",
+							"    });\r",
+							"    return uuid;\r",
+							"}\r",
+							"var uuid1 = create_UUID();\r",
+							"var uuid2 = create_UUID();\r",
+							"var userId = \"84c61c63-1c55-4188-ba11-0bd9d4d33af9\";\r",
+							"var deviceId = \" 254bc53c-cd13-422d-82a3-4dccd7251fc8\";\r",
+							"var folderName = \"tryit\";\r",
+							"var localhostUrl = \"http://localhost:5000\";\r",
+							"var devUrl = \"http://dellbackup-qa.betsol.com\";\r",
+							"let timestamp = new Date().toJSON();\r",
+							"var hash1 = create_UUID();\r",
+							"var hash2 = create_UUID();\r",
+							"pm.environment.set('uuid1', uuid1);\r",
+							"pm.environment.set('uuid2', uuid2);\r",
+							"pm.environment.set('userId', userId);\r",
+							"pm.environment.set('deviceId', deviceId);\r",
+							"pm.environment.set('folderName', folderName);\r",
+							"pm.environment.set('localhostUrl', localhostUrl);\r",
+							"pm.environment.set('devUrl', devUrl);\r",
+							"pm.environment.set('timestamp', timestamp);\r",
+							"pm.environment.set('hash1', hash1);\r",
+							"pm.environment.set('hash2', hash2);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7ce73079-0638-469f-a0fe-1c6de04ba5d7",
+						"exec": [
+							"ResponseData = JSON.parse(responseBody);\r",
+							"var Status = JSON.parse(ResponseData.StatusCode)\r",
+							"\r",
+							"pm.test(\"Status code is correct\", function()\r",
+							"{\r",
+							"     pm.expect(Status).is.equal(0);\r",
+							"} );\r",
+							"\r",
+							"   \r",
+							"pm.test(\"Error Message found\", function()\r",
+							"{\r",
+							"   pm.expect(ResponseData.Data.FailedFiles[0].ErrorMessage).is.equal(\"Invalid file type\");\r",
+							"}\r",
+							");\r",
+							"\r",
+							"pm.test(\"Error Code found\", function()\r",
+							"{\r",
+							"   pm.expect(ResponseData.Data.FailedFiles[0].ErrorCode).is.equal(1007);\r",
+							"}\r",
+							");\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ShardKey",
+						"type": "text",
+						"value": "10002"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {  \r\n    \"FileId\": \"{{uuid1}}\",\r\n    \"Path\": \"E:\\\\\",\r\n    \"FileType\": 1,\r\n    \"IsDeleted\": \"true\",\r\n    \"IsExcluded\": \"false\",\r\n    \"IsBackupCandidate\": \"false\",\r\n    \"ParentId\": null\r\n  },\r\n  {\r\n    \"FileId\": \"{{uuid2}}\",\r\n    \"Path\": \"E:\\\\{{folderName}}\\\\\",\r\n    \"FileType\": 2,\r\n    \"IsDeleted\": \"true\",\r\n    \"IsExcluded\": \"false\",\r\n    \"IsBackupCandidate\": \"true\",\r\n    \"ParentId\": \"{{uuid1}}\",\r\n    \"VersionId\": \"{{$guid}}\",\r\n    \"FileSize\": null,\r\n    \"VersionHash\": null,\r\n    \"BackupVersion\": \"v1\",\r\n    \"IsHidden\": \"true\",\r\n    \"IsSystemFile\": \"false\",\r\n    \"IsReadOnly\": \"true\",\r\n    \"FileCreatedTime\": \"2020-08-12 12:50:59.962694\",\r\n    \"FileModifiedTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"FileAccessTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"VersionCreatedTime\": \"{{timestamp}}\"\r\n  },\r\n  {\r\n    \"FileId\": \"{{$guid}}\",\r\n    \"Path\": \"E:\\\\{{folderName}}\\\\normallyfile.txt\",\r\n    \"FileType\": 8,\r\n    \"IsDeleted\": \"true\",\r\n    \"IsExcluded\": \"false\",\r\n    \"IsBackupCandidate\": \"false\",\r\n    \"ParentId\": \"{{uuid2}}\",\r\n    \"VersionId\": \"{{$guid}}\",\r\n    \"FileSize\": 468,\r\n    \"VersionHash\": \"{{hash1}}\",\r\n    \"BackupVersion\": \"v1\",\r\n    \"IsHidden\": \"true\",\r\n    \"IsSystemFile\": \"false\",\r\n    \"IsReadOnly\": \"false\",\r\n    \"FileCreatedTime\": \"2020-08-12 12:50:59.962694\",\r\n    \"FileModifiedTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"FileAccessTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"VersionCreatedTime\": \"{{timestamp}}\",\r\n    \"Chunks\": [\r\n      {\r\n        \"Id\": \"84c61c63-1c55-4188-ba11-0bd9d4d33af9/{{hash1}}\",\r\n        \"ChunkMetaData\": \"{}\",\r\n        \"FilePipelineVersion\": \"v1\",\r\n        \"StartOffset\": 0,\r\n        \"EndOffset\": 300\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"FileId\": \"{{$guid}}\",\r\n    \"Path\": \"E:\\\\{{folderName}}\\\\T2.dheeraj\",\r\n    \"FileType\": 8,\r\n    \"IsDeleted\": \"true\",\r\n    \"IsExcluded\": \"false\",\r\n    \"IsBackupCandidate\": \"false\",\r\n    \"ParentId\": \"{{uuid2}}\",\r\n    \"VersionId\": \"{{$guid}}\",\r\n    \"FileSize\": 460,\r\n    \"VersionHash\": \"{{hash2}}\",\r\n    \"BackupVersion\": \"v1\",\r\n    \"IsHidden\": \"true\",\r\n    \"IsSystemFile\": \"false\",\r\n    \"IsReadOnly\": \"false\",\r\n    \"FileCreatedTime\": \"2020-08-12 12:50:59.962694\",\r\n    \"FileModifiedTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"FileAccessTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"VersionCreatedTime\": \"{{timestamp}}\",\r\n    \"Chunks\": [\r\n      {\r\n        \"Id\": \"84c61c63-1c55-4188-ba11-0bd9d4d33af9/{{hash2}}\",\r\n        \"ChunkMetaData\": \"{}\",\r\n        \"FilePipelineVersion\": \"v1\",\r\n        \"StartOffset\": 0,\r\n        \"EndOffset\": 300\r\n      }\r\n    ]\r\n  }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/MetdataService/api/v1/user/{{userId}}/device/{{deviceId}}/file?checkforupdates=true",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"MetdataService",
+						"api",
+						"v1",
+						"user",
+						"{{userId}}",
+						"device",
+						"{{deviceId}}",
+						"file"
+					],
+					"query": [
+						{
+							"key": "checkforupdates",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
