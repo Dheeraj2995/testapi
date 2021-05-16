@@ -1,0 +1,2225 @@
+{
+	"info": {
+		"_postman_id": "5e627baa-a704-4ef3-874f-90c471616208",
+		"name": "Miscellaneous API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UserShardKey",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Get the User Shardkey\", function() \r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"    \r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "ShardKey",
+						"value": "{{ShardKey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{QAUrl}}/UsersService/api/v1/User/{{Userid}}/shard-key",
+					"host": [
+						"{{QAUrl}}"
+					],
+					"path": [
+						"UsersService",
+						"api",
+						"v1",
+						"User",
+						"{{Userid}}",
+						"shard-key"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SpaceAvailability",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Check user space availabilty request successfull.\", function() \r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"    \r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "{{ShardKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{QAUrl}}/UsersService/api/v1/User/{{Userid}}/space-availability",
+					"host": [
+						"{{QAUrl}}"
+					],
+					"path": [
+						"UsersService",
+						"api",
+						"v1",
+						"User",
+						"{{Userid}}",
+						"space-availability"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RemoteBackupConfig",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Check user space availabilty request successfull.\", function() \r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"    \r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ShardKey",
+						"type": "text",
+						"value": "{{ShardKey}}"
+					}
+				],
+				"url": {
+					"raw": "{{QAUrl}}/UsersService/api/v1/User/{{Userid}}/remotebackupconfig  ",
+					"host": [
+						"{{QAUrl}}"
+					],
+					"path": [
+						"UsersService",
+						"api",
+						"v1",
+						"User",
+						"{{Userid}}",
+						"remotebackupconfig  "
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Folder - Local",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Folder added successfully\", function() \r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"    \r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"Path\":\"{{AddFolder}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:28284/api/Backup/addBackupSet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "28284",
+					"path": [
+						"api",
+						"Backup",
+						"addBackupSet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add File - Local ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"File added successfully\", function() \r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"    \r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Path\":\"{{AddFile}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:28284/api/Backup/addBackupSet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "28284",
+					"path": [
+						"api",
+						"Backup",
+						"addBackupSet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "StopBackup_Local",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"File backup stop successfully\", function() \r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"    \r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"Path\": \"{{StopBackup}}\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:28284/api/Backup/stopBackup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "28284",
+					"path": [
+						"api",
+						"Backup",
+						"stopBackup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Restore_Local",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Restore Item is successful\", function() \r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"    \r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "{{ShardKey}}",
+						"type": "text"
+					},
+					{
+						"key": "X-ARR-ClientCert",
+						"value": "{{X-ARR-ClientCert}}",
+						"type": "text"
+					},
+					{
+						"key": "SessionId",
+						"value": "{{SessionId}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"Path\": \"E:\\\\tryit\\\\normalfile.txt\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://127.0.0.1:28284/api/Restore/restoreItems",
+					"protocol": "https",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "28284",
+					"path": [
+						"api",
+						"Restore",
+						"restoreItems"
+					]
+				},
+				"description": "http://localhost:28284/api/Restore/restoreItems\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "CancelRestore_Local",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Cancel Restore Item is successful\", function() \r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "{{ShardKey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"Path\": \"{{CRestPath}}\"\r\n    }\r\n    ]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:28284/api/restore/cancelRestore",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "28284",
+					"path": [
+						"api",
+						"restore",
+						"cancelRestore"
+					]
+				},
+				"description": "Local API"
+			},
+			"response": []
+		},
+		{
+			"name": "PrioritizeRestore_Local",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Restore Priority is successful\", function() \r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n        \"Path\": [\"{{PriorityPath}}\"],\r\n        \"Priority Type\": \"{{PriorityType}}\",\r\n        \"Destination Path\": \"{{PriDestinationPath}}\"\r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:28284/api/restore/prioritizeRestore",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "28284",
+					"path": [
+						"api",
+						"restore",
+						"prioritizeRestore"
+					]
+				},
+				"description": "Local API"
+			},
+			"response": []
+		},
+		{
+			"name": "Download_Location_Local",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"File download location configured successfully\", function() \r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"    \r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"DownloadPath\":\"{{SetDownloadLoc}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:28284/api/Download/userDownloadLocation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "28284",
+					"path": [
+						"api",
+						"Download",
+						"userDownloadLocation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download_Local",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Download Item is successful\", function() \r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"}\r",
+							");\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "{{ShardKey}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-ARR-ClientCert",
+						"value": "{{X-ARR-ClientCert}}",
+						"type": "text"
+					},
+					{
+						"key": "SessionId",
+						"value": "{{SessionId}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n         \"Path\": \"‪E:\\\\DemoFiles\\\\Screenshot (61).png\",\r\n         \"DownloadPath\": \"C:\\\\Users\\\\dheeraj.tiwari\\\\Music\\\\\"\r\n       }\r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:28284/api/download/downloadItem",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "28284",
+					"path": [
+						"api",
+						"download",
+						"downloadItem"
+					]
+				},
+				"description": "http://localhost:28284/api/Download/downloaditem"
+			},
+			"response": []
+		},
+		{
+			"name": "DownloadItems_Version_Local",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"File Version downloaded successfully\", function() \r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"    \r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ShardKey",
+						"type": "text",
+						"value": "{{ShardKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"Path\": \"{{DownSrcPath}}\",\r\n        \"VersionId\": \"{{DownloadVersion}}\",\r\n        \"DownloadPath\": \"{{DownDestPath}}}\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:28284/api/Download/downloadItems",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "28284",
+					"path": [
+						"api",
+						"Download",
+						"downloadItems"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel_Download_Local",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"File download cancel successfully\", function() \r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"    \r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"Path\": \"{{Canceldownloadpath}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:28284/api/Download/cancelDownload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "28284",
+					"path": [
+						"api",
+						"Download",
+						"cancelDownload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD file_Remote",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function create_UUID(){\r",
+							"    var dt = new Date().getTime();\r",
+							"    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {\r",
+							"        var r = (dt + Math.random()*16)%16 | 0;\r",
+							"        dt = Math.floor(dt/16);\r",
+							"        return (c=='x' ? r :(r&0x3|0x8)).toString(16);\r",
+							"    });\r",
+							"    return uuid;\r",
+							"}\r",
+							"var uuid1 = create_UUID();\r",
+							"var uuid2 = create_UUID();\r",
+							"var userId = \"84c61c63-1c55-4188-ba11-0bd9d4d33af9\";\r",
+							"var deviceId = \" 254bc53c-cd13-422d-82a3-4dccd7251fc8\";\r",
+							"var folderName = \"tryit\";\r",
+							"var localhostUrl = \"http://localhost:5000\";\r",
+							"var devUrl = \"http://dellbackup-qa.betsol.com\";\r",
+							"let timestamp = new Date().toJSON();\r",
+							"var hash1 = create_UUID();\r",
+							"var hash2 = create_UUID();\r",
+							"pm.environment.set('uuid1', uuid1);\r",
+							"pm.environment.set('uuid2', uuid2);\r",
+							"pm.environment.set('userId', userId);\r",
+							"pm.environment.set('deviceId', deviceId);\r",
+							"pm.environment.set('folderName', folderName);\r",
+							"pm.environment.set('localhostUrl', localhostUrl);\r",
+							"pm.environment.set('devUrl', devUrl);\r",
+							"pm.environment.set('timestamp', timestamp);\r",
+							"pm.environment.set('hash1', hash1);\r",
+							"pm.environment.set('hash2', hash2);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"ResponseData = JSON.parse(responseBody);\r",
+							"var Status = JSON.parse(ResponseData.StatusCode)\r",
+							"//var Space_Avialable = JSON.parse(ResponseData.Data.SpaceAvailableInBytes)\r",
+							"\r",
+							"\r",
+							"const schemaNextAction = {\r",
+							"  \r",
+							"  \"type\": \"object\",\r",
+							"  \"properties\": {\r",
+							"    \"StatusCode\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    },\r",
+							"    \"Data\": {\r",
+							"      \"type\": \"object\",\r",
+							"      \"properties\": {\r",
+							"        \"AddedFiles\": {\r",
+							"          \"type\": \"array\",\r",
+							"          \"items\": [\r",
+							"            {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            {\r",
+							"              \"type\": \"string\"\r",
+							"            }\r",
+							"          ]\r",
+							"        },\r",
+							"        \"FailedFiles\": {\r",
+							"          \"type\": \"array\",\r",
+							"          \"items\": {}\r",
+							"        },\r",
+							"        \"ExistingFiles\": {\r",
+							"          \"type\": \"array\",\r",
+							"          \"items\": {}\r",
+							"        },\r",
+							"        \"SpaceAvailableInBytes\": {\r",
+							"          \"type\": \"integer\"\r",
+							"        },\r",
+							"        \"PendingUpdateAvailable\": {\r",
+							"          \"type\": \"boolean\"\r",
+							"        }\r",
+							"      },\r",
+							"      \"required\": [\r",
+							"        \"AddedFiles\",\r",
+							"        \"FailedFiles\",\r",
+							"        \"ExistingFiles\",\r",
+							"        \"SpaceAvailableInBytes\",\r",
+							"        \"PendingUpdateAvailable\"\r",
+							"      ]\r",
+							"    },\r",
+							"    \"ValidationError\": {\r",
+							"      \"type\": \"null\"\r",
+							"    },\r",
+							"    \"ErrorCode\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    },\r",
+							"    \"ErrorMessage\": {\r",
+							"      \"type\": \"null\"\r",
+							"    },\r",
+							"    \"Retry\": {\r",
+							"      \"type\": \"boolean\"\r",
+							"    }\r",
+							"  },\r",
+							"  \"required\": [\r",
+							"    \"StatusCode\",\r",
+							"    \"Data\",\r",
+							"    \"ValidationError\",\r",
+							"    \"ErrorCode\",\r",
+							"    \"ErrorMessage\",\r",
+							"    \"Retry\"\r",
+							"  ]\r",
+							"};\r",
+							"\r",
+							"\r",
+							"pm.test(\"Expects response to match expected JSON Schema\", function() {\r",
+							"    pm.response.to.have.jsonSchema(schemaNextAction);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"File added successfully\", function() \r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							" \r",
+							"pm.test(\"Status code is correct\", function()\r",
+							"{\r",
+							"     pm.expect(Status).is.equal(1);\r",
+							"} );\r",
+							"\r",
+							"if (pm.expect(ResponseData.Data).is.not.equal({})){\r",
+							"pm.test(\"Data is available\", function()\r",
+							"{\r",
+							"   pm.expect(ResponseData.Data).is.not.null;\r",
+							"})\r",
+							"   pm.test(\"File added successfully\", function()\r",
+							"   {\r",
+							"       pm.expect(ResponseData.Data.AddedFiles).is.not.null;\r",
+							"   })\r",
+							"   \r",
+							"   pm.test(\"Space is available\", function()\r",
+							"   {\r",
+							"       pm.expect(ResponseData.Data.ExistingFiles).is.not.equal(0);\r",
+							"   })\r",
+							"   pm.test(\"PendingUpdateAvailable is available\", function()\r",
+							"   {\r",
+							"       pm.expect(ResponseData.Data.PendingUpdateAvailable).is.equal(true);\r",
+							"   })\r",
+							"\r",
+							"}\r",
+							"else\r",
+							"{\r",
+							"pm.test(\"Data is available\", function()\r",
+							"{\r",
+							"   pm.expect(ResponseData.Data).is.not.null;\r",
+							" })\r",
+							"\r",
+							"}\r",
+							"   \r",
+							"pm.test(\"No Error Message found\", function()\r",
+							"{\r",
+							"   pm.expect(ResponseData.ErrorMessage).is.equal(null);\r",
+							"}\r",
+							");\r",
+							"\r",
+							"pm.test(\"No Error Code found\", function()\r",
+							"{\r",
+							"   pm.expect(ResponseData.ErrorCode).is.equal(0);\r",
+							"}\r",
+							");\r",
+							"\r",
+							"pm.test(\"No Validation Error found\", function()\r",
+							"{\r",
+							"   pm.expect(ResponseData.ValidationError).is.equal(null);\r",
+							"}\r",
+							");\r",
+							"\r",
+							"pm.test(\"No Retry performed\", function()\r",
+							"{\r",
+							"   pm.expect(ResponseData.Retry).is.equal(false);\r",
+							"}\r",
+							");\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "{{ShardKey}}",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {  \r\n    \"FileId\": \"{{uuid1}}\",\r\n    \"Path\": \"E:\\\\\",\r\n    \"FileType\": 1,\r\n    \"IsDeleted\": \"true\",\r\n    \"IsExcluded\": \"false\",\r\n    \"IsBackupCandidate\": \"false\",\r\n    \"ParentId\": null\r\n  },\r\n  {\r\n    \"FileId\": \"{{uuid2}}\",\r\n    \"Path\": \"E:\\\\{{folderName}}\\\\\",\r\n    \"FileType\": 2,\r\n    \"IsDeleted\": \"true\",\r\n    \"IsExcluded\": \"false\",\r\n    \"IsBackupCandidate\": \"true\",\r\n    \"ParentId\": \"{{uuid1}}\",\r\n    \"VersionId\": \"{{$guid}}\",\r\n    \"FileSize\": null,\r\n    \"VersionHash\": null,\r\n    \"BackupVersion\": \"v1\",\r\n    \"IsHidden\": \"true\",\r\n    \"IsSystemFile\": \"false\",\r\n    \"IsReadOnly\": \"true\",\r\n    \"FileCreatedTime\": \"2020-08-12 12:50:59.962694\",\r\n    \"FileModifiedTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"FileAccessTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"VersionCreatedTime\": \"{{timestamp}}\"\r\n  },\r\n  {\r\n    \"FileId\": \"{{$guid}}\",\r\n    \"Path\": \"E:\\\\{{folderName}}\\\\normallyfile.txt\",\r\n    \"FileType\": 3,\r\n    \"IsDeleted\": \"true\",\r\n    \"IsExcluded\": \"false\",\r\n    \"IsBackupCandidate\": \"false\",\r\n    \"ParentId\": \"{{uuid2}}\",\r\n    \"VersionId\": \"{{$guid}}\",\r\n    \"FileSize\": 294,\r\n    \"VersionHash\": \"{{hash1}}\",\r\n    \"BackupVersion\": \"v1\",\r\n    \"IsHidden\": \"true\",\r\n    \"IsSystemFile\": \"false\",\r\n    \"IsReadOnly\": \"false\",\r\n    \"FileCreatedTime\": \"2020-08-12 12:50:59.962694\",\r\n    \"FileModifiedTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"FileAccessTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"VersionCreatedTime\": \"{{timestamp}}\",\r\n    \"Chunks\": [\r\n      {\r\n        \"Id\": \"84c61c63-1c55-4188-ba11-0bd9d4d33af9/{{hash1}}\",\r\n        \"ChunkMetaData\": \"{}\",\r\n        \"FilePipelineVersion\": \"v1\",\r\n        \"StartOffset\": 0,\r\n        \"EndOffset\": 300\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"FileId\": \"{{$guid}}\",\r\n    \"Path\": \"E:\\\\{{folderName}}\\\\T2.txt\",\r\n    \"FileType\": 3,\r\n    \"IsDeleted\": \"true\",\r\n    \"IsExcluded\": \"false\",\r\n    \"IsBackupCandidate\": \"false\",\r\n    \"ParentId\": \"{{uuid2}}\",\r\n    \"VersionId\": \"{{$guid}}\",\r\n    \"FileSize\": 2580,\r\n    \"VersionHash\": \"{{hash2}}\",\r\n    \"BackupVersion\": \"v1\",\r\n    \"IsHidden\": \"true\",\r\n    \"IsSystemFile\": \"false\",\r\n    \"IsReadOnly\": \"false\",\r\n    \"FileCreatedTime\": \"2020-08-12 12:50:59.962694\",\r\n    \"FileModifiedTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"FileAccessTime\": \"2020-08-13 09:50:59.962694\",\r\n    \"VersionCreatedTime\": \"{{timestamp}}\",\r\n    \"Chunks\": [\r\n      {\r\n        \"Id\": \"84c61c63-1c55-4188-ba11-0bd9d4d33af9/{{hash2}}\",\r\n        \"ChunkMetaData\": \"{}\",\r\n        \"FilePipelineVersion\": \"v1\",\r\n        \"StartOffset\": 0,\r\n        \"EndOffset\": 300\r\n      }\r\n    ]\r\n  }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/MetdataService/api/v1/user/{{userId}}/device/{{deviceId}}/file?checkforupdates=true",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"MetdataService",
+						"api",
+						"v1",
+						"user",
+						"{{userId}}",
+						"device",
+						"{{deviceId}}",
+						"file"
+					],
+					"query": [
+						{
+							"key": "checkforupdates",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_Remote ",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var deviceId = \" 254bc53c-cd13-422d-82a3-4dccd7251fc8\";\r",
+							"var userId = \"84c61c63-1c55-4188-ba11-0bd9d4d33af9\";\r",
+							"pm.environment.set('userId', userId);\r",
+							"pm.environment.set('deviceId', deviceId);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"File removed successfully\", function() \r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"    \r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "{{ShardKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{QAUrl}}/MetdataService/api/v1/user/{{Userid}}/device/{{Deviceid}}/file/{{Delete_Fileid_Remote}}",
+					"host": [
+						"{{QAUrl}}"
+					],
+					"path": [
+						"MetdataService",
+						"api",
+						"v1",
+						"user",
+						"{{Userid}}",
+						"device",
+						"{{Deviceid}}",
+						"file",
+						"{{Delete_Fileid_Remote}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add_File_Version_Remote",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"File version added successfully\", function() \r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"    \r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function create_UUID(){\r",
+							"    var dt = new Date().getTime();\r",
+							"    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {\r",
+							"        var r = (dt + Math.random()*16)%16 | 0;\r",
+							"        dt = Math.floor(dt/16);\r",
+							"        return (c=='x' ? r :(r&0x3|0x8)).toString(16);\r",
+							"    });\r",
+							"    return uuid;\r",
+							"}\r",
+							"var uuid1 = create_UUID();\r",
+							"var uuid2 = create_UUID();\r",
+							"var userId = \"84c61c63-1c55-4188-ba11-0bd9d4d33af9\";\r",
+							"var deviceId = \" 254bc53c-cd13-422d-82a3-4dccd7251fc8\";\r",
+							"var folderName = \"tryit\";\r",
+							"var localhostUrl = \"http://localhost:5000\";\r",
+							"var devUrl = \"http://dellbackup-qa.betsol.com\";\r",
+							"let timestamp = new Date().toJSON();\r",
+							"var hash1 = create_UUID();\r",
+							"var hash2 = create_UUID();\r",
+							"pm.environment.set('uuid1', uuid1);\r",
+							"pm.environment.set('uuid2', uuid2);\r",
+							"pm.environment.set('userId', userId);\r",
+							"pm.environment.set('deviceId', deviceId);\r",
+							"pm.environment.set('folderName', folderName);\r",
+							"pm.environment.set('localhostUrl', localhostUrl);\r",
+							"pm.environment.set('devUrl', devUrl);\r",
+							"pm.environment.set('timestamp', timestamp);\r",
+							"pm.environment.set('hash1', hash1);\r",
+							"pm.environment.set('hash2', hash2);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ShardKey",
+						"type": "text",
+						"value": "{{ShardKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"VersionId\": \"{{$guid}}\",\r\n  \"FileSize\": 200,\r\n  \"VersionHash\": \"{{hash1}}\",\r\n  \"BackupVersion\": \"v1\",\r\n  \"IsHidden\": \"false\",\r\n  \"IsSystemFile\": \"true\",\r\n  \"IsReadOnly\": \"false\",\r\n  \"FileCreatedTime\": \"2020-08-12 10:50:59.962694\",\r\n  \"FileModifiedTime\": \"2020-08-13 12:50:59.962694\",\r\n  \"FileAccessTime\": \"2020-08-13 12:50:59.962694\",\r\n  \"VersionCreatedTime\": \"{{timestamp}}\",\r\n  \"Chunks\": [\r\n    {\r\n      \"Id\": \"84c61c63-1c55-4188-ba11-0bd9d4d33af9/{{hash2}}\",\r\n      \"ChunkMetaData\": \"{}\",\r\n      \"FilePipelineVersion\": \"v1\",\r\n      \"StartOffset\": 0,\r\n      \"EndOffset\": 200\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{QAUrl}}/MetdataService/api/v1/user/{{Userid}}/device/{{Deviceid}}/file/BCEA9767-97FC-4119-B99F-0254BE55567E?checkforupdates=true",
+					"host": [
+						"{{QAUrl}}"
+					],
+					"path": [
+						"MetdataService",
+						"api",
+						"v1",
+						"user",
+						"{{Userid}}",
+						"device",
+						"{{Deviceid}}",
+						"file",
+						"BCEA9767-97FC-4119-B99F-0254BE55567E"
+					],
+					"query": [
+						{
+							"key": "checkforupdates",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove_From_Cloud_Remote",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"File removed successfully from cloud\", function() \r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"    \r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "{{ShardKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\"{{RemoveFromCloud_Path}}\"]"
+				},
+				"url": {
+					"raw": "{{QAUrl}}/MetdataService/api/v1/user/{{Userid}}/device/{{Deviceid}}/removefromcloud",
+					"host": [
+						"{{QAUrl}}"
+					],
+					"path": [
+						"MetdataService",
+						"api",
+						"v1",
+						"user",
+						"{{Userid}}",
+						"device",
+						"{{Deviceid}}",
+						"removefromcloud"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RemoveFileVersion_Remote",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"File Version removed successfully\", function() \r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"    \r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "{{ShardKey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\"{{RemoveFileVersion_id}}\"]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{QAUrl}}/MetdataService/api/v1/user/{{Userid}}/device/{{Deviceid}}/deleteversion",
+					"host": [
+						"{{QAUrl}}"
+					],
+					"path": [
+						"MetdataService",
+						"api",
+						"v1",
+						"user",
+						"{{Userid}}",
+						"device",
+						"{{Deviceid}}",
+						"deleteversion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FullScan_Configuration_Local",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"FullScanInterval configured successfully\", function() \r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"    \r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  [\r\n      {\r\n             \"DeviceId\":\"{{Deviceid}}\",     \r\n              \"FullScanFrequency\": \"{{FullScanFrequency}}\"\r\n   }\r\n    ]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:28284/api/UserCusomizations/setFullScanInterval",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "28284",
+					"path": [
+						"api",
+						"UserCusomizations",
+						"setFullScanInterval"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Rename File/Folder",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "{{ShardKey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"OP\":\"RENAME\",\r\n    \"Path\": \"E:\\\\DemoFiles\\\\SampleCSVFile_557kb.csv\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/MetdataService/api/v1/user/84c61c63-1c55-4188-ba11-0bd9d4d33af9/device/ 254bc53c-cd13-422d-82a3-4dccd7251fc8/file/BCEA9767-97FC-4119-B99F-0254BE55567E",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"MetdataService",
+						"api",
+						"v1",
+						"user",
+						"84c61c63-1c55-4188-ba11-0bd9d4d33af9",
+						"device",
+						" 254bc53c-cd13-422d-82a3-4dccd7251fc8",
+						"file",
+						"BCEA9767-97FC-4119-B99F-0254BE55567E"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\": \"youremail@betsol.com\",\r\n    \"displayName\": \"yourDisplayName\",\r\n    \"deviceId\": \"4c4c4544-004a-4610-8059-b7c04f315832\",  //only send 1 guid, each guid will create a device (change the guid when you send a request)      \r\n    \"deviceName\": \"yourDeviceName\",\r\n    \"countryName\": \"India\",    // only India will work\r\n    \"timeZone\": \"Asia/Kolkata\" // only Asia/Kolkata will work\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/UsersService/api/v1/User/user",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"UsersService",
+						"api",
+						"v1",
+						"User",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Incremental DeviceAgentConfig Sync Data available in Remote db",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "10001",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/UsersService/api/v1/Device/{DeviceId}/date/{LatestCompareTime}/device-agent-config-sync-data",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"UsersService",
+						"api",
+						"v1",
+						"Device",
+						"{DeviceId}",
+						"date",
+						"{LatestCompareTime}",
+						"device-agent-config-sync-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Backup Metadata Table Status Data.",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "23877",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/MetdataService/api/v1/User/094FFD0B-CC5D-48B6-BB42-D55285AA177C/Device/3ECB45FD-7962-42A7-901E-EA515BDA4A54/table-status",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"MetdataService",
+						"api",
+						"v1",
+						"User",
+						"094FFD0B-CC5D-48B6-BB42-D55285AA177C",
+						"Device",
+						"3ECB45FD-7962-42A7-901E-EA515BDA4A54",
+						"table-status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Incremental Chunk Sync Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/MetdataService/api/v1/chunk/user/{UserId}/Device/{DeviceId}/offset/{Offset}/date/{LatestUpdateTime}/chunk-sync-data",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"MetdataService",
+						"api",
+						"v1",
+						"chunk",
+						"user",
+						"{UserId}",
+						"Device",
+						"{DeviceId}",
+						"offset",
+						"{Offset}",
+						"date",
+						"{LatestUpdateTime}",
+						"chunk-sync-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Incremental Drive Volume Sync Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/MetdataService/api/v1/drivevolume/user/{UserId}/Device/{DeviceId}/date/{LatestCompareTime}/drive-volume-sync-data",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"MetdataService",
+						"api",
+						"v1",
+						"drivevolume",
+						"user",
+						"{UserId}",
+						"Device",
+						"{DeviceId}",
+						"date",
+						"{LatestCompareTime}",
+						"drive-volume-sync-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Incremental File Sync Data available in Remote db.",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "10001",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/MetdataService/api/v1/user/{UserId}/Device/{DeviceId}/offset/{Offset}/date/{LatestCompareTime}/file-sync-data",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"MetdataService",
+						"api",
+						"v1",
+						"user",
+						"{UserId}",
+						"Device",
+						"{DeviceId}",
+						"offset",
+						"{Offset}",
+						"date",
+						"{LatestCompareTime}",
+						"file-sync-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Incremental Version Sync Data available in remote.",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "10001",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/MetdataService/api/v1/version/user/{UserId}/Device/{DeviceId}/offset/{Offset}/date/{LatestCompareTime}/version-sync-data",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"MetdataService",
+						"api",
+						"v1",
+						"version",
+						"user",
+						"{UserId}",
+						"Device",
+						"{DeviceId}",
+						"offset",
+						"{Offset}",
+						"date",
+						"{LatestCompareTime}",
+						"version-sync-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Incremental VersionHasChunk Sync Data",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "10001",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/MetdataService/api/v1/versionhaschunk/user/{UserId}/Device/{DeviceId}/offset/{Offset}/date/{LatestCompareTime}/version-has-chunk-sync-data",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"MetdataService",
+						"api",
+						"v1",
+						"versionhaschunk",
+						"user",
+						"{UserId}",
+						"Device",
+						"{DeviceId}",
+						"offset",
+						"{Offset}",
+						"date",
+						"{LatestCompareTime}",
+						"version-has-chunk-sync-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User And Devices Table Status Data.",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "10001",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/UsersService/api/v1/User/{UserId}/Device/{DeviceId}/table-status",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"UsersService",
+						"api",
+						"v1",
+						"User",
+						"{UserId}",
+						"Device",
+						"{DeviceId}",
+						"table-status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Incremental Device Sync Data available in Remote db.",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "10001",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/UsersService/api/v1/User/{UserId}/Device/{DeviceId}/date/{LatestCompareTime}/device-sync-data",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"UsersService",
+						"api",
+						"v1",
+						"User",
+						"{UserId}",
+						"Device",
+						"{DeviceId}",
+						"date",
+						"{LatestCompareTime}",
+						"device-sync-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Incremental User sync data available in Remote db.",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "10001",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/UsersService/api/v1/User/{UserId}/Device/{DevideId}/user-sync-data",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"UsersService",
+						"api",
+						"v1",
+						"User",
+						"{UserId}",
+						"Device",
+						"{DevideId}",
+						"user-sync-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PendingUpdates",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "41515",
+						"type": "text"
+					},
+					{
+						"key": "getall",
+						"value": "false",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/PendingUpdateService/api/v1/PendingUpdate/user/DF161F60-B2E5-40B1-87A0-24CCA6ED3C56/device/6984DF87-2FD8-44A0-A5B5-CC737A50F41C/get-updates?getall=false",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"PendingUpdateService",
+						"api",
+						"v1",
+						"PendingUpdate",
+						"user",
+						"DF161F60-B2E5-40B1-87A0-24CCA6ED3C56",
+						"device",
+						"6984DF87-2FD8-44A0-A5B5-CC737A50F41C",
+						"get-updates"
+					],
+					"query": [
+						{
+							"key": "getall",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "syncdata",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "{{ShardKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/UsersService/api/v1/User/{{Userid}}/Device/{{Deviceid}}/sync-data",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"UsersService",
+						"api",
+						"v1",
+						"User",
+						"{{Userid}}",
+						"Device",
+						"{{Deviceid}}",
+						"sync-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Drive volume sync data",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "{{ShardKey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "​{{QAUrl}}/MetdataService​/api​/v{version}​/driveVolume​/user​/{{Userid}}​/device​/{{Deviceid}}​/drive-volume-sync-data",
+					"host": [
+						"​{{QAUrl}}"
+					],
+					"path": [
+						"MetdataService​",
+						"api​",
+						"v{version}​",
+						"driveVolume​",
+						"user​",
+						"{{Userid}}​",
+						"device​",
+						"{{Deviceid}}​",
+						"drive-volume-sync-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "syncdata - offset",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "{{ShardKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/MetdataService/api/v1/user/{{Userid}}/Device/{{Deviceid}}/offset/0/sync-data",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"MetdataService",
+						"api",
+						"v1",
+						"user",
+						"{{Userid}}",
+						"Device",
+						"{{Deviceid}}",
+						"offset",
+						"0",
+						"sync-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customization info - Feature table",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "{{ShardKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/UsersService/api/v1/User/{{Userid}}/Customization-Information",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"UsersService",
+						"api",
+						"v1",
+						"User",
+						"{{Userid}}",
+						"Customization-Information"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDriveVolume",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://dellbackup-qa.betsol.com/MetdataService/api/v1/driveVolume/device/{{Deviceid}}/getall",
+					"protocol": "http",
+					"host": [
+						"dellbackup-qa",
+						"betsol",
+						"com"
+					],
+					"path": [
+						"MetdataService",
+						"api",
+						"v1",
+						"driveVolume",
+						"device",
+						"{{Deviceid}}",
+						"getall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Drive volume sync data",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "{{ShardKey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "​{{QAUrl}}/MetdataService​/api​/v{version}​/driveVolume​/user​/{{Userid}}​/device​/{{Deviceid}}​/drive-volume-sync-data",
+					"host": [
+						"​{{QAUrl}}"
+					],
+					"path": [
+						"MetdataService​",
+						"api​",
+						"v{version}​",
+						"driveVolume​",
+						"user​",
+						"{{Userid}}​",
+						"device​",
+						"{{Deviceid}}​",
+						"drive-volume-sync-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Drive Volume - Save",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "{{ShardKey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n    \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n    \"volumeId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n    \"name\": \"string\",\r\n    \"deviceId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n    \"createdTime\": \"2021-04-26T09:36:30.339Z\",\r\n    \"updatedTime\": \"2021-04-26T09:36:30.339Z\"\r\n  }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{QAUrl}}/MetdataService/api/v1/driveVolume/device/{{Deviceid}}/save",
+					"host": [
+						"{{QAUrl}}"
+					],
+					"path": [
+						"MetdataService",
+						"api",
+						"v1",
+						"driveVolume",
+						"device",
+						"{{Deviceid}}",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "StopBackup",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "{{ShardKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  \"032763B9-02B9-4571-92F7-BCBD65147141\"\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{QAUrl}}​/MetdataService/api/v1​/{{Userid}}/​device​/{{Deviceid}}/stopbackup",
+					"host": [
+						"{{QAUrl}}​"
+					],
+					"path": [
+						"MetdataService",
+						"api",
+						"v1​",
+						"{{Userid}}",
+						"​device​",
+						"{{Deviceid}}",
+						"stopbackup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RemoveFromCloud",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "{{ShardKey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  \"string\"\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{QAUrl}}/MetdataService/api/v1/user/{{Userid}}/device/{{Deviceid}}/removefromcloud",
+					"host": [
+						"{{QAUrl}}"
+					],
+					"path": [
+						"MetdataService",
+						"api",
+						"v1",
+						"user",
+						"{{Userid}}",
+						"device",
+						"{{Deviceid}}",
+						"removefromcloud"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Operations",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ShardKey",
+						"value": "{{ShardKey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"op\": \"string\",\r\n  \"path\": \"string\",\r\n  \"isExcluded\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{QAUrl}}/MetdataService/api/v1/user/{{Userid}}/device/{{Deviceid}}/file/{{fileId}}",
+					"host": [
+						"{{QAUrl}}"
+					],
+					"path": [
+						"MetdataService",
+						"api",
+						"v1",
+						"user",
+						"{{Userid}}",
+						"device",
+						"{{Deviceid}}",
+						"file",
+						"{{fileId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "RestorePath",
+			"value": ""
+		},
+		{
+			"key": "CRestPath",
+			"value": ""
+		},
+		{
+			"key": "DownSrcPath",
+			"value": ""
+		},
+		{
+			"key": "DownDestPath",
+			"value": ""
+		},
+		{
+			"key": "AddFile",
+			"value": ""
+		},
+		{
+			"key": "AddFolder",
+			"value": ""
+		},
+		{
+			"key": "PriorityPath",
+			"value": ""
+		},
+		{
+			"key": "PriorityType",
+			"value": ""
+		},
+		{
+			"key": "PriDestinationPath",
+			"value": ""
+		},
+		{
+			"key": "QAUrl",
+			"value": "http://dellbackup-qa.betsol.com"
+		},
+		{
+			"key": "Userid",
+			"value": "DF161F60-B2E5-40B1-87A0-24CCA6ED3C56"
+		},
+		{
+			"key": "Deviceid",
+			"value": "6984DF87-2FD8-44A0-A5B5-CC737A50F41C"
+		},
+		{
+			"key": "ShardKey",
+			"value": "41515"
+		},
+		{
+			"key": "FullScanFrequency",
+			"value": ""
+		},
+		{
+			"key": "RemoveFileVersion_id",
+			"value": ""
+		},
+		{
+			"key": "RemoveFromCloud_Path",
+			"value": ""
+		},
+		{
+			"key": "StopBackup",
+			"value": ""
+		},
+		{
+			"key": "SetDownloadLoc",
+			"value": ""
+		},
+		{
+			"key": "DownloadVersion",
+			"value": ""
+		},
+		{
+			"key": "Canceldownloadpath",
+			"value": ""
+		},
+		{
+			"key": "Delete_Fileid_Remote",
+			"value": ""
+		}
+	]
+}
